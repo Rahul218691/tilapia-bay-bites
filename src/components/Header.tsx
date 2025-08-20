@@ -41,6 +41,14 @@ const Header = () => {
           >
             Live Fish
           </Link>
+          <Link 
+            to="/my-orders" 
+            className={`text-sm font-medium transition-colors hover:text-ocean ${
+              location.pathname === "/my-orders" ? "text-ocean" : "text-muted-foreground"
+            }`}
+          >
+            My Orders
+          </Link>
         </nav>
         
         <div className="flex items-center space-x-4">
@@ -88,6 +96,15 @@ const Header = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   Live Fish
+                </Link>
+                <Link 
+                  to="/my-orders" 
+                  className={`text-lg font-medium transition-colors hover:text-ocean ${
+                    location.pathname === "/my-orders" ? "text-ocean" : "text-muted-foreground"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  My Orders
                 </Link>
               </nav>
             </SheetContent>

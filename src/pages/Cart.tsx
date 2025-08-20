@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import grilledTilapia from "@/assets/grilled-tilapia.jpg";
@@ -109,12 +110,16 @@ const Cart = () => {
                       <span>Total</span>
                       <span className="text-coral">${total.toFixed(2)}</span>
                     </div>
-                    <Button variant="ocean" className="w-full" size="lg">
-                      Proceed to Checkout
-                    </Button>
-                    <Button variant="outline" className="w-full">
-                      Continue Shopping
-                    </Button>
+                    <Link to="/checkout" className="w-full">
+                      <Button variant="ocean" className="w-full" size="lg">
+                        Proceed to Checkout
+                      </Button>
+                    </Link>
+                    <Link to="/menu" className="w-full">
+                      <Button variant="outline" className="w-full">
+                        Continue Shopping
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </div>
