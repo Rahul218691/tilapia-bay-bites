@@ -4,13 +4,22 @@ import { Fish, Utensils, Truck, Star, Clock, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import heroTilapia from "@/assets/hero-tilapia.jpg";
+import heroTilapia from "@/assets/hero.webp";
 import grilledTilapia from "@/assets/grilled-tilapia.jpg";
 import tilapiaCurry from "@/assets/tilapia-curry.jpg";
 import friedTilapia from "@/assets/fried-tilapia.jpg";
+import SEOWrapper from "@/components/SEOWrapper";
 
 const Index = () => {
   return (
+    <SEOWrapper
+      title="TilapiaBay - Fresh Tilapia Fish & Restaurant | Premium Seafood Delivery"
+      description="Order fresh live tilapia fish and expertly prepared dishes from TilapiaBay. Premium seafood delivery with same-day service. Restaurant-quality meals made fresh."
+      ogTitle="TilapiaBay - Fresh Tilapia Fish & Restaurant | Premium Seafood Delivery"
+      ogDescription="Order fresh live tilapia fish and expertly prepared dishes from TilapiaBay. Premium seafood delivery with same-day service. Restaurant-quality meals made fresh."
+      ogImage={`${window.location.origin}/fish.svg`}
+      ogUrl={window.location.origin}
+    >
     <div className="min-h-screen bg-background">
       <Header />
       
@@ -22,6 +31,7 @@ const Index = () => {
             src={heroTilapia} 
             alt="Fresh Tilapia" 
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
         <div className="relative container text-center text-white">
@@ -202,6 +212,7 @@ const Index = () => {
       
       <Footer />
     </div>
+    </SEOWrapper>
   );
 };
 
