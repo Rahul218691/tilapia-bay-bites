@@ -65,22 +65,29 @@ const LiveFish = () => {
                 </div>
               </CardHeader>
               <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <CardTitle className="text-xl text-deep-blue">{fish.name}</CardTitle>
+                <div className="flex items-start justify-between mb-2">
+                  <CardTitle className="text-lg sm:text-xl text-deep-blue flex-1 mr-2">{fish.name}</CardTitle>
                   <Badge 
                     variant={fish.availability === "In Stock" ? "default" : "secondary"}
-                    className={fish.availability === "In Stock" ? "bg-ocean" : "bg-coral"}
+                    className={`${fish.availability === "In Stock" ? "bg-ocean" : "bg-coral"} text-xs whitespace-nowrap`}
                   >
-                    {fish.availability}
+                    {fish.availability === "Limited Stock" ? (
+                      <span className="hidden sm:inline">Limited Stock</span>
+                    ) : (
+                      fish.availability
+                    )}
+                    {fish.availability === "Limited Stock" && (
+                      <span className="sm:hidden">Limited</span>
+                    )}
                   </Badge>
                 </div>
                 <p className="text-muted-foreground text-sm mb-4">{fish.description}</p>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 space-y-2 sm:space-y-0">
                   <div className="text-sm text-muted-foreground">
                     Weight: <span className="font-medium text-deep-blue">{fish.weight}</span>
                   </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-coral">${fish.price}</div>
+                  <div className="text-left sm:text-right">
+                    <div className="text-xl sm:text-2xl font-bold text-coral">${fish.price}</div>
                     <div className="text-sm text-muted-foreground">{fish.unit}</div>
                   </div>
                 </div>

@@ -51,59 +51,61 @@ const Cart = () => {
               </CardContent>
             </Card>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2 space-y-4">
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+              <div className="xl:col-span-2 space-y-4">
                 {cartItems.map((item) => (
                   <Card key={item.id}>
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
                         <img 
                           src={item.image} 
                           alt={item.name}
-                          className="w-20 h-20 object-cover rounded-lg"
+                          className="w-full sm:w-20 h-32 sm:h-20 object-cover rounded-lg"
                         />
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-deep-blue">{item.name}</h3>
-                          <p className="text-coral font-bold">${item.price}</p>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-deep-blue text-sm sm:text-base">{item.name}</h3>
+                          <p className="text-coral font-bold text-lg">${item.price}</p>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <Button variant="outline" size="icon" className="h-8 w-8">
-                            <Minus className="h-4 w-4" />
-                          </Button>
-                          <span className="w-8 text-center font-medium">{item.quantity}</span>
-                          <Button variant="outline" size="icon" className="h-8 w-8">
-                            <Plus className="h-4 w-4" />
+                        <div className="flex items-center justify-between w-full sm:w-auto sm:flex-col sm:items-end space-y-2">
+                          <div className="flex items-center space-x-2">
+                            <Button variant="outline" size="icon" className="h-8 w-8">
+                              <Minus className="h-4 w-4" />
+                            </Button>
+                            <span className="w-8 text-center font-medium">{item.quantity}</span>
+                            <Button variant="outline" size="icon" className="h-8 w-8">
+                              <Plus className="h-4 w-4" />
+                            </Button>
+                          </div>
+                          <Button variant="ghost" size="icon" className="text-destructive">
+                            <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>
-                        <Button variant="ghost" size="icon" className="text-destructive">
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
                       </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
               
-              <div className="lg:col-span-1">
-                <Card>
+              <div className="xl:col-span-1">
+                <Card className="sticky top-20">
                   <CardHeader>
-                    <CardTitle>Order Summary</CardTitle>
+                    <CardTitle className="text-lg">Order Summary</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between text-sm">
                       <span>Subtotal</span>
                       <span>${subtotal.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between text-sm">
                       <span>Tax</span>
                       <span>${tax.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between text-sm">
                       <span>Delivery</span>
                       <span>${delivery.toFixed(2)}</span>
                     </div>
                     <Separator />
-                    <div className="flex justify-between font-bold text-lg">
+                    <div className="flex justify-between font-bold text-base sm:text-lg">
                       <span>Total</span>
                       <span className="text-coral">${total.toFixed(2)}</span>
                     </div>
