@@ -5,6 +5,7 @@ const Loading = () => {
         src="/Preloader.gif" 
         alt="Loading..." 
         className="w-24 h-auto sm:w-28 md:w-32"
+        loading="lazy"
       />
     </div>
   )
